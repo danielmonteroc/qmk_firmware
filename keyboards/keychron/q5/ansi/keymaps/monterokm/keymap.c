@@ -55,3 +55,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,            _______,  _______,  _______,  _______,  _______,  NK_TOGG,  _______,  _______,  _______,  _______,              _______,  _______,  _______,  _______,  _______,
         _______,  _______,  _______,                                _______,                                _______,  _______,    _______,  _______,  _______,  _______,  _______,  _______,  _______),
 };
+
+#ifdef RGB_MATRIX_ENABLE
+
+bool rgb_matrix_indicators_user(void) {
+    // Apaga todo
+    rgb_matrix_set_color_all(0, 0, 0);
+
+    // Caps Lock activa → rojo
+    if (host_keyboard_led_state().caps_lock) {
+        rgb_matrix_set_color(CAPS_LOCK_LED_INDEX, 255, 255, 255);
+    }
+
+    // Num Lock activa → verde
+    if (host_keyboard_led_state().num_lock) {
+        rgb_matrix_set_color(NUM_LOCK_LED_INDEX, 255, 255, 255);
+    }
+
+    return false; // Ignora efectos RGB predeterminados
+}
+
+#endif
