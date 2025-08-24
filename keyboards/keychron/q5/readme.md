@@ -32,4 +32,5 @@ See the [build eonvironment setup](https://docs.qmk.fm/#/getting_started_build_t
  qmk config user.keyboard=keychron/q5/ansi
  qmk compile -kb keychron/q5/ansi -km monterokm
  qmk flash -kb keychron/q5/ansi -km monterokm 
+  cp .build/*.bin /mnt/c/Users/danie/Downloads/
 ```
