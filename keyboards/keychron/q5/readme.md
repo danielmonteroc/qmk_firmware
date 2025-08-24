@@ -30,7 +30,6 @@ See the [build eonvironment setup](https://docs.qmk.fm/#/getting_started_build_t
 # Setting up keyboard
 ```bash
  qmk config user.keyboard=keychron/q5/ansi
- 
- 
-  qmk compile -kb keychron/q5/ansi -km monterokm
+ qmk compile -kb keychron/q5/ansi -km monterokm
+ qmk flash -kb keychron/q5/ansi -km monterokm 
 ```
