@@ -85,9 +85,9 @@ void keyboard_post_init_user(void) {
 }
 
 
-bool dip_switch_update_kb(uint8_t index, bool active) {
+bool dip_switch_update_user(uint8_t index, bool active) {
     if (index == 0) {
-        current_os = active ? OS_MAC : OS_WIN;
+        current_os = active ? OS_WIN : OS_MAC;
     }
     return true;
 }
@@ -105,11 +105,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case SCRSHOT:
             if (current_os == OS_WIN) {
-               // tap_code16(G(S(KC_S)));   // Windows: Win+Shift+S
-                tap_code16(KC_W);   // Windows: Win+Shift+S
+                tap_code16(G(S(KC_S)));   // Windows: Win+Shift+S
             } else {
-                //tap_code16(C(S(KC_4)));   // Mac: Cmd+Shift+4
-                tap_code16(KC_M);   // Mac: Cmd+Shift+4
+                tap_code16(C(S(KC_4)));   // Mac: Cmd+Shift+4
             }
             return false;
     }
