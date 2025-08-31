@@ -69,3 +69,19 @@ bool rgb_matrix_indicators_user(void) {
     return false; // ignora efectos RGB predeterminados
 }
 #endif
+
+void keyboard_post_init_user(void) {
+    if (!host_keyboard_led_state().num_lock) {
+        tap_code(KC_NUM);
+    }
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (keycode == KC_NUM && record->event.pressed) {
+        if (!host_keyboard_led_state().num_lock) {
+            tap_code(KC_NUM);
+        }
+        return false;
+    }
+    return true;
+}
